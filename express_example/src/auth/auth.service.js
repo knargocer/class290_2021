@@ -1,5 +1,4 @@
 const User = require('../users/user.entity');
-const { Unauthorized } = require('http-errors')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { Locked } = require('http-errors');

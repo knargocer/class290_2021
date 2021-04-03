@@ -8,6 +8,7 @@ class UserService {
         const user = new User(payload);
         return user.save();
     }
+    
 
     findAll(query) {
         const { offset, limit, sort, asc } = query;
