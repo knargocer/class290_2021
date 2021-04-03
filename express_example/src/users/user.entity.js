@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const util = require('../commons/util');
+const {ROLES} = require('../commons/util');
 
-const roles = [util.ADMIN_ROLE, util.CUSTOMER_ROLE];
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
@@ -30,8 +29,8 @@ const schema = new Schema({
 
     role: {
         type: String,
-        enum: roles,
-        default:roles[0]
+        enum: [ROLES.ADMIN,ROLES.CUSTOMER],
+        default:ROLES.CUSTOMER
     },
 
     loginAttempts: { 

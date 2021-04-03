@@ -18,14 +18,6 @@ const jwtMiddleware = async (req, res, next) => {
 
 jwtMiddleware.unless = require('express-unless');
 
-jwtMiddleware.unless({
-    path:[{
-    url: ['/users'],
-    methods:['POST']
-        }
-    ]
-})
-
 module.exports = {
     jwtMiddleware
 }

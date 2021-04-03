@@ -1,10 +1,5 @@
 const User = require('../users/user.entity');
 const users = require('../users/users.service');
-const { Unauthorized } = require('http-errors')
-const util = require('../commons/util');
-
-const admin = util.ADMIN_ROLE;
-const customer = util.CUSTOMER_ROLE;
 
 class AdminService{
 
@@ -31,7 +26,7 @@ class AdminService{
         }
         await User.findOneAndUpdate( {'username' : user.username}, {'isLocked' : true})
 
-        return  { message: "User has successfully been unlocked!"}
+        return  { message: "User has successfully been locked!"}
     }
 }
 module.exports = new AdminService();
