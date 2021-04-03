@@ -11,10 +11,8 @@ const jwtMiddleware = async (req, res, next) => {
         user.role = dbUser.role;
         req.user = user;
     } catch (err) {
-        
         return next(new Forbidden());
     }
-
     next();
 }
 

@@ -7,15 +7,26 @@ const app = express();
 const users = require('./users/users.controller');
 const auth = require('./auth/auth.controller');
 const posts = require('./posts/posts.controller');
+const admin = require('./admin/admin.controller');
 const { writeInFile, readFromFile } = require('./commons/util');
 const { handleError } = require('./commons/middlewares/error-handler.middleware');
 const asyncHandler = require('express-async-handler');
 const { jwtMiddleware } = require('./commons/middlewares/auth.middleware');
 const cors = require('cors');
+// const cookieParser = require('cookie-parser');
+// const passport = require('passport');
+// const Strategy = require('passport-local').Strategy;
+// const session = require('express-session');
 
 app.use(cors());
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
+
+// app.use(cookieParser()) 
+// app.use(session({ secret: 'xxxx' }));
+// app.use(passport.initialize());
+// app.use(passport.session());
+
 
 // app.use(jwtMiddleware.unless({
 //     path: [
@@ -24,6 +35,7 @@ app.use(express.json())
 //     ]
 // }));
 
+app.use('/admin', admin);
 app.use('/users', users);
 app.use('/auth', auth);
 app.use('/posts', posts);

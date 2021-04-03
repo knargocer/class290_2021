@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const util = require('../commons/util');
 
-const roles = [util.ADMIN_ROL, util.CUSTOMER_ROLE];
+const roles = [util.ADMIN_ROLE, util.CUSTOMER_ROLE];
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
@@ -37,7 +37,7 @@ const schema = new Schema({
     loginAttempts: { 
         type: Number, 
         required: true, 
-        default: 0 
+        default: 1 
     },
     
     isLocked: {
