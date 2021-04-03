@@ -11,6 +11,7 @@ const jwtMiddleware = async (req, res, next) => {
         user.role = dbUser.role;
         req.user = user;
     } catch (err) {
+        
         return next(new Forbidden());
     }
 
@@ -18,6 +19,14 @@ const jwtMiddleware = async (req, res, next) => {
 }
 
 jwtMiddleware.unless = require('express-unless');
+
+jwtMiddleware.unless({
+    path:[{
+    url: ['/users'],
+    methods:['POST']
+        }
+    ]
+})
 
 module.exports = {
     jwtMiddleware

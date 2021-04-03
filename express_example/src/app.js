@@ -18,7 +18,8 @@ app.use(express.json())
 app.use(jwtMiddleware.unless({
     path: [
         '/auth/login',
-        { url: '/users', methods: ['POST'] }
+        { url: '/users',
+         methods: ['POST'] }
     ]
 }));
 
